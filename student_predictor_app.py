@@ -72,14 +72,14 @@ if st.sidebar.button("Predict Success"):
         for course in ['1_G-AVERAGE', 'ALG1', 'ANA1', 'ALGO1', 'STR1']:
             prob = results[course]
             color = 'green' if prob >= 70 else 'orange' if prob >= 50 else 'red'
-            st.markdown(f"{course}: ::{color}[{prob:.1f}%]")
+            st.markdown(f"{course}: <span style='color:{color}'>{prob:.1f}%</span>", unsafe_allow_html=True)
     
     with col2:
         st.subheader("First Year - Semester 2")
         for course in ['ALG2', 'ANA2', 'ALGO2', 'STR2', 'PROBA2']:
             prob = results[course]
             color = 'green' if prob >= 70 else 'orange' if prob >= 50 else 'red'
-            st.markdown(f"{course}: ::{color}[{prob:.1f}%]")
+            st.markdown(f"{course}: <span style='color:{color}'>{prob:.1f}%</span>", unsafe_allow_html=True)
     
     with col3:
         st.subheader("Summary")
