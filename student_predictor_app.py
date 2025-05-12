@@ -7,7 +7,7 @@ from sklearn.preprocessing import LabelEncoder
 
 # Set page config
 st.set_page_config(page_title="Student Success Predictor", layout="wide")
-st.title("INF Student Success Predictor")
+st.title("INF Student Sucvvvvvvvvcess Predictor")
 
 @st.cache_data
 def load_and_train():
