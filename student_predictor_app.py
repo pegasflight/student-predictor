@@ -7,8 +7,15 @@ from sklearn.preprocessing import LabelEncoder
 
 # Set page config
 st.set_page_config(page_title="Student Success Predictor", layout="wide")
-st.title("INF Student Sucvvvnnvvvvvcess Predictor")
-
+st.markdown(
+    """
+    <div style="display: flex; align-items: center;">
+        <img src="https://raw.githubusercontent.com/pegasflight/student-predictor/refs/heads/main/his.png" width="150" style="margin-right: 15px;">
+        <h1 style="margin: 0;"><b>HIS University</b><br>CS. First Year Success Predictor</h1>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 @st.cache_data
 def load_and_train():
     # Load data
@@ -84,7 +91,8 @@ if st.sidebar.button("Predict Success"):
     with col3:
         st.subheader("Summary")
         avg_prob = sum(results.values()) / len(results)
-        st.markdown(f"Overall Success Probability: **{avg_prob:.1f}%**")
+        color = 'green' if prob >= 70 else 'orange' if prob >= 50 else 'red'
+        st.markdown(f"Overall Success Probability: <span style='color:{color}'>**{avg_prob:.1f}%**</span>", unsafe_allow_html=True)
         
         if avg_prob >= 70:
             st.success("High chance of success!")
